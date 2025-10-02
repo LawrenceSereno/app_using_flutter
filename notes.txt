@@ -1,0 +1,19 @@
+# Make sure git knows who you are
+git config --global user.name "LawrenceSereno"
+git config --global user.email "thesunflower23@gmail.com"
+
+# Stage all files
+git add .
+
+# Commit your changes
+git commit -m "Initial commit"
+
+# Just in case, reset the remote to your public repo
+git remote remove origin
+git remote add origin https://github.com/LawrenceSereno/app_using_flutter.git
+
+# Ensure your branch is named main
+git branch -M main
+
+# Push to GitHub
+git push -u origin main
