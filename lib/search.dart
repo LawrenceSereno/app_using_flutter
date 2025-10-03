@@ -18,6 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   final List<Product> allProducts = [
     Product(
+      id: 1,
       name: 'Air Max 97',
       price: 20.99,
       image: 'assets/images/air_max_97.png',
@@ -28,6 +29,7 @@ class _SearchScreenState extends State<SearchScreen> {
       country: 'Vietnam',
     ),
     Product(
+      id: 2,
       name: 'React Presto',
       price: 25.99,
       image: 'assets/images/react_presto.png',
@@ -38,6 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
       country: 'China',
     ),
     Product(
+      id: 3,
       name: 'Nike Vaporfly 4',
       price: 231.94,
       image: 'assets/images/vaporfly_4.png',
@@ -48,6 +51,7 @@ class _SearchScreenState extends State<SearchScreen> {
       country: 'USA',
     ),
     Product(
+      id: 4,
       name: 'Nike Court Vision',
       price: 60.93,
       image: 'assets/images/court_vision.png',
@@ -59,25 +63,25 @@ class _SearchScreenState extends State<SearchScreen> {
     ),
   ];
 
-  void _performSearch(String query) {
-    setState(() {
-      isSearching = query.isNotEmpty;
-      if (query.isEmpty) {
-        searchResults = [];
-      } else {
-        searchResults = allProducts
-            .where((product) =>
-                product.name.toLowerCase().contains(query.toLowerCase()))
-            .toList();
-      }
-    });
-  }
+    void _performSearch(String query) {
+      setState(() {
+        isSearching = query.isNotEmpty;
+        if (query.isEmpty) {
+          searchResults = [];
+        } else {
+          searchResults = allProducts
+              .where((product) =>
+                  product.name.toLowerCase().contains(query.toLowerCase()))
+              .toList();
+        }
+      });
+    }
 
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
+    @override
+    void dispose() {
+      _searchController.dispose();
+      super.dispose();
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -246,7 +250,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                           ),
                                           const SizedBox(height: 4),
                                           Text(
-                                            '\${product.price.toStringAsFixed(2)}',
+                                            '${product.price.toStringAsFixed(2)}',
                                             style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 14,
